@@ -18,7 +18,8 @@ class Gateway extends AbstractGateway
     {
         return array(
             'cardknoxKey'    => '',
-            'liveEndpoint'      => 'https://lb1.cardknox.com/gateway',
+            'liveEndpoint'      => 'https://x1.cardknox.com/gateway',
+            'reportEndpoint'    => 'https://x1.cardknox.com/report'
            
         );
     }
@@ -42,6 +43,16 @@ class Gateway extends AbstractGateway
     {
         return $this->setParameter('liveEndpoint', $value);
     }
+
+    public function getReportEndpoint()
+    {
+        return $this->getParameter('reportEndpoint');
+    }
+    public function setReportEndpoint($value)
+    {
+        return $this->setParameter('reportEndpoint', $value);
+    }
+
 
     public function authorize(array $parameters = array())
     {
@@ -67,4 +78,9 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Cardknox\Message\RefundRequest', $parameters);
     }
+    public function lookup(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Cardknox\Message\LookupRequest', $parameters);
+    }
+
 }

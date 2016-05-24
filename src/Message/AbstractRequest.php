@@ -153,6 +153,18 @@ abstract class AbstractRequest extends CommonAbstractRequest
 
     public function getEndpoint()
     {
-        return $this->getParameter('liveEndpoint');
+        //return $this->getParameter('liveEndpoint');
+        return $this->getLookup() ? $this->getReportEndpoint() : $this->getLiveEndpoint();
+    }
+   
+
+    public function getLookup()
+    {
+        return $this->getParameter('lookup');
+    }
+    public function setLookup($value)
+    {
+        return $this->setParameter('lookup', $value);
     }
 }
+
