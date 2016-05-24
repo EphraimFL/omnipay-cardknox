@@ -34,7 +34,14 @@ abstract class AbstractRequest extends CommonAbstractRequest
     {
         return $this->setParameter('liveEndpoint', $value);
     }
-
+    public function getReportEndpoint()
+    {
+        return $this->getParameter('reportEndpoint');
+    }
+    public function setReportEndpoint($value)
+    {
+        return $this->setParameter('reportEndpoint', $value);
+    }
     public function getInvoice()
     {
         return $this->getParameter('invoice');

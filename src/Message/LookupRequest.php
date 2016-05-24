@@ -15,7 +15,8 @@ class LookupRequest extends AbstractRequest
         $data = $this->getBaseData();
         $data['xIP'] = $this->getClientIp();
         $data['xRefNum'] = $this->getTransactionReference();
-        
+        $data['xInvoice'] = $this->getInvoice();
         return $data;
     }
+
 }
